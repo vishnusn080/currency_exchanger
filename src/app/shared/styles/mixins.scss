@@ -1,0 +1,26 @@
+@mixin display($direction, $isSpace, $isCenter) {
+  display: flex;
+  flex-direction: $direction;
+  @if $isSpace == "true" {
+    justify-content: space-between;
+  }
+
+  @if $isCenter == "true" {
+    justify-content: center;
+  }
+}
+
+@mixin custom-btn-CSS($width, $padding, $bgColor, $color, $border, $margin) {
+  width: $width;
+
+  @if $padding != "" {
+    padding: $padding;
+  }
+  background-color: $bgColor;
+  color: $color;
+  border: $border;
+
+  @if $margin != "" {
+    margin: $margin;
+  }
+}

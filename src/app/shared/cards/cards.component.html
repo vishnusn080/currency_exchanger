@@ -1,0 +1,9 @@
+<main *ngIf="!disabled" class="grid">
+  <article *ngFor="let curr of popularCurrencyConversions">
+    <div class="text">
+      <h3>From - {{ curAmount }} {{ curr.from }}</h3>
+      <p>To - {{ curr.to }}</p>
+      <button disabled="true">Result - {{ curr.result }} {{ curr.to }}</button>
+    </div>
+  </article>
+</main>

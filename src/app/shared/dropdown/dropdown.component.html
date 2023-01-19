@@ -1,0 +1,11 @@
+<h4>{{ heading }}</h4>
+<select
+  #selectEl
+  (change)="sendSelectedValueEvent($event)"
+  [disabled]="disabled"
+>
+  <option [selected]="true" [value]="swappedVal">{{ swappedVal }}</option>
+  <option *ngFor="let option of options" [value]="option.name">
+    {{ option.name }}
+  </option>
+</select>
