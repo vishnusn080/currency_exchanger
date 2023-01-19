@@ -1,0 +1,40 @@
+.or--x::before,
+.or--x::after {
+    position: relative;
+    border-top: 1px solid #ccc;
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    margin-bottom: 0.15em;
+    overflow: hidden;
+}
+
+.or--x::before {
+    right: 0.5em;
+    margin-left: -50%;
+    width: 50rem;
+}
+
+// .or--x::after {
+//     left: 0.5em;
+//     margin-right: -50%;
+//     width: 20rem;
+
+// }
+
+.or::before {
+    content: "";
+}
+
+
+.or {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #828282;
+  font-size: 0.75em;
+  margin: 2em auto;
+}
+
+.or--x {
+  max-width: 30em;
+}
