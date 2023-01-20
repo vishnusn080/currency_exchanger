@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  KEY: "kCNvbBc5CNI2TG6xXW00jvoXdTA8tNJj",
+  KEY: "mhX6HGZfmTyvI41JHgAJTKHEsoMDprPg",
   BASE_URL: "https://api.apilayer.com/fixer"
 };
 
