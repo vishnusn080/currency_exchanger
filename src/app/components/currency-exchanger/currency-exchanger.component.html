@@ -1,0 +1,104 @@
+<section class="section">
+  <h1 *ngIf="isHomePage" style="color: white">Currency Exchanger</h1>
+  <div *ngIf="!isHomePage" class="exchangeContainer">
+    <span>
+      {{ getFullName() }}
+    </span>
+    <button class="home-btn" mat-raised-button routerLink="/" color="primary">
+      Back to Home
+    </button>
+  </div>
+
+  <div class="convertor">
+    <div class="leftbar">
+      <div>
+        <p style="color: white">Amount</p>
+        <input
+          [(ngModel)]="amount"
+          (input)="setAmount($event)"
+          class="inputComp"
+          min="0"
+          type="number"
+        />
+      </div>
+      <div>
+        <button
+          mat-raised-button
+          [disabled]="true"
+          routerLink="/"
+          color="primary"
+        >
+          {{
+            singleUnitCurrencyRate.length > 0
+              ? singleUnitCurrencyRate
+              : "Loading...."
+          }}
+        </button>
+      </div>
+    </div>
+    <div class="rightbar">
+      <div class="top">
+        <app-dropdown
+          #fromDropDown
+          [swappedVal]="fromOption"
+          [disabled]="!isCorrectAmountEntered || !isHomePage"
+          (selectedValue)="setDropdownValue('from', $event)"
+          style="color: white"
+          [heading]="'From'"
+          innerHeading="EUR"
+          [options]="currencies"
+        ></app-dropdown>
+        <span
+          (click)="swap()"
+          class="fa-solid fa-right-left"
+          style="margin: auto; color: white; cursor: pointer"
+        ></span>
+        <app-dropdown
+          #toDropDown
+          [swappedVal]="toOption"
+          [disabled]="!isCorrectAmountEntered"
+          (selectedValue)="setDropdownValue('to', $event)"
+          style="color: white"
+          [heading]="'To'"
+          innerHeading="USD"
+          [options]="currencies"
+        ></app-dropdown>
+      </div>
+      <div class="bottom">
+        <button
+          [disabled]="!isCorrectAmountEntered"
+          (click)="convertCurrencyValue()"
+          class="small"
+          mat-raised-button
+          color="primary"
+        >
+          {{ getBtnText() }}
+        </button>
+        <div class="bottom-right">
+          <button
+            class="big"
+            [disabled]="true"
+            mat-raised-button
+            color="primary"
+          >
+            {{
+              convertedResult.length > 0 ? convertedResult : "--------------"
+            }}
+          </button>
+          <button
+            *ngIf="isHomePage"
+            class="btn"
+            [disabled]="!isCorrectAmountEntered"
+            (click)="goToDetails()"
+            mat-raised-button
+            color="primary"
+          >
+            More Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-divider></app-divider>
+
+</section>
