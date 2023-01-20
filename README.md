@@ -1,3 +1,10 @@
+### steps to run
+- clone the repo
+- do `yarn install`
+- do `yarn start`
+- go to `localhost:4200`
+
+
 ### Few assumptions/calculations done to bypass api limitations.
 
 - we are calculating the conversion basis the exchange rate per unit currency.
